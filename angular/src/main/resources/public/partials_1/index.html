@@ -1,0 +1,24 @@
+
+
+<script src="js/IndexController.js"></script>
+
+<div ng-controller="IndexController" ng-init="init()">
+	<div style="float: right">
+		<a href="#!/create" class="btn btn-default">Create</a>
+	</div>
+
+<a ng-click="init()" class="btn btn-xs btn-default">Init</a>
+	<div class="page-header">
+		<h3>News</h3>
+	</div>
+	<div ng-repeat="newsEntry in newsEntries"  >
+		<hr />
+		<div class="pull-right">
+			<a ng-click="deleteEntry(newsEntry)" class="btn btn-xs btn-default">Remove</a>
+			<a href="#!/edit/{{newsEntry.id}}" class="btn btn-xs btn-default">Edit</a>
+		</div>
+		<h4>{{newsEntry.date | date}}</h4>
+		<p>{{newsEntry.content}}</p>
+	</div>
+	<hr />
+</div>
