@@ -99,7 +99,7 @@ msmApp.run(function($rootScope, $http, $location, $cookieStore, LoginService) {
 
 	 /* Try getting valid user from cookie or go to login page */
 	var originalPath = $location.path();
-	alert('originalPath: '+originalPath);
+	
 	$location.path("/login");
 	var user = $cookieStore.get('user');
 	

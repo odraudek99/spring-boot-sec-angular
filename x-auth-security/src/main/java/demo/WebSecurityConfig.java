@@ -27,8 +27,14 @@ class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
         http.csrf().disable();
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-
-        String[] restEndpointsToSecure = { "news1"};
+        
+        
+        String[] restEndpointsToSecure = { "news111"} ;
+        if(Application.security) {
+        	restEndpointsToSecure[0] = "news" ;
+        } 
+        System.out.println("Seguridad activada: " + Application.security);
+        
         for (String endpoint : restEndpointsToSecure) {
             http.authorizeRequests().antMatchers("/" + endpoint + "/**").hasRole(CustomUserDetailsService.ROLE_USER);
         }
