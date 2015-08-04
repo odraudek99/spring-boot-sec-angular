@@ -11,8 +11,8 @@ msmApp.register.controller('IndexController', 	function IndexController($scope, 
 		
 		
 		
-		$http.defaults.headers.common[ 'x-auth-token' ] = user.token;
-		$cookieStore.put('user', user);
+//		$http.defaults.headers.common[ 'x-auth-token' ] = user.token;
+//		$cookieStore.put('user', user);
 		
 	
 		$http({
@@ -55,8 +55,6 @@ msmApp.register.controller('IndexController', 	function IndexController($scope, 
 	            throw new Error("Fallo obtener los datos:" + status + "\n" + data);
 	        }
         });
-		
-
 
 	};
 

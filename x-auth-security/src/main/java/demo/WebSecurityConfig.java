@@ -29,12 +29,7 @@ class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         
         
-        String[] restEndpointsToSecure = { "news111"} ;
-        if(Application.security) {
-        	restEndpointsToSecure[0] = "news" ;
-        } 
-        System.out.println("Seguridad activada: " + Application.security);
-        
+        String[] restEndpointsToSecure = { "news"} ;
         for (String endpoint : restEndpointsToSecure) {
             http.authorizeRequests().antMatchers("/" + endpoint + "/**").hasRole(CustomUserDetailsService.ROLE_USER);
         }

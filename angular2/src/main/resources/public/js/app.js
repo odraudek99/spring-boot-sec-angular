@@ -123,7 +123,7 @@ exampleApp.run(function($rootScope, $http, $location, $cookieStore,
 
 function IndexController($scope, NewsService,$rootScope) {
 	
-	alert('$rootScope.user: '+$rootScope.user);
+	
 	$scope.newsEntries = NewsService.query();
 
 	$scope.deleteEntry = function(newsEntry) {
