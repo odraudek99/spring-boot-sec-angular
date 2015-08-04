@@ -21,7 +21,6 @@
         <module>x-auth-security</module>
     </modules>
 
-
     <repositories>
         <repository>
             <id>spring-snapshots</id>
