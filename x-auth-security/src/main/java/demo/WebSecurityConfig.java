@@ -1,5 +1,6 @@
 package demo;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
@@ -37,10 +38,13 @@ class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         SecurityConfigurer<DefaultSecurityFilterChain, HttpSecurity> securityConfigurerAdapter = new XAuthTokenConfigurer(userDetailsServiceBean());
         http.apply(securityConfigurerAdapter);
     }
-
+    
+    @Autowired
+    CustomUserDetailsService customUserDetailsService;
+    
     @Override
     protected void configure(AuthenticationManagerBuilder authManagerBuilder) throws Exception {
-        authManagerBuilder.userDetailsService(new CustomUserDetailsService());
+    	authManagerBuilder.userDetailsService(customUserDetailsService);
     }
 
     @Bean

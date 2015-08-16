@@ -5,6 +5,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -32,7 +33,7 @@ public class UserXAuthTokenController {
 	private final UserDetailsService userDetailsService;
 
 	@Autowired
-	public UserXAuthTokenController(AuthenticationManager am, UserDetailsService userDetailsService) {
+	public UserXAuthTokenController(AuthenticationManager am, @Qualifier("customUserDetailsService")UserDetailsService userDetailsService) {
 		this.authenticationManager = am;
 		this.userDetailsService = userDetailsService;
 	}
