@@ -52,7 +52,7 @@ class NewsController {
 	NewsEntry update(@RequestBody NewsEntry news) {
 		NewsEntry newE = this.entries.get(news.getId());
 		if (newE == null) {
-			throw new MSMException("Entity dont exist");
+			throw new MSMException("Managed exception: Entity dont exist");
 		}
 		this.entries.put(news.getId(), news);
 		return news;
