@@ -1,0 +1,21 @@
+<div style="float: right">
+	<a href="#!/createPersona" class="btn btn-default" ng-show="hasRole('ROLE_ADMIN')">Create</a>
+</div>
+<div class="page-header">
+	<h3>Personas</h3>
+</div>
+
+<div >
+    <table datatable="" dt-options="dtOptions" dt-columns="dtColumns" class="row-border hover"></table>
+</div>
+
+<div ng-repeat="persona in personas">
+	<hr />
+	
+	<h4>{{persona.nombre}}</h4>
+	<h4>{{persona.tipoPersona}}</h4>
+	
+</div>
+
+
+<hr />

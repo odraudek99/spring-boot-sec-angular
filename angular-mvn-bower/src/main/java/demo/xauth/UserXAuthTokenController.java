@@ -40,7 +40,7 @@ public class UserXAuthTokenController {
 
 	@RequestMapping(value = "/authenticate", method = { RequestMethod.POST })
 	public UserTransfer authorize(@RequestParam String username, @RequestParam String password) {
-		System.out.println("entra  a authenticate, username: "+username+" ; password: "+password);
+		
 		UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(username, password);
 		Authentication authentication = this.authenticationManager.authenticate(token);
 		SecurityContextHolder.getContext().setAuthentication(authentication);

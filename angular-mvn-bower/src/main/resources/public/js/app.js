@@ -7,17 +7,32 @@ exampleApp.config([ '$routeProvider', '$locationProvider', '$httpProvider', func
 
 			$routeProvider.when('/create', {
 				templateUrl: 'partials/create.html',
-				controller: CreateController
+				controller: CreateController,
+				activeNav: 'news'
 			});
 
 			$routeProvider.when('/edit/:id', {
 				templateUrl: 'partials/edit.html',
-				controller: EditController
+				controller: EditController,
+				activeNav: 'news'
 			});
 
 			$routeProvider.when('/login', {
 				templateUrl: 'partials/login.html',
 				controller: LoginController
+			});
+			
+			$routeProvider.when('/personas', {
+				templateUrl: 'partials/personas.html',
+				controller: PersonasController,
+				activeNav: 'personas'
+			});
+			
+			
+			$routeProvider.when('/createPersona', {
+				templateUrl: 'partials/createPersona.html',
+				controller: CreatePersonaController,
+				activeNav: 'personas'
 			});
 
 			$routeProvider.otherwise({
@@ -164,6 +179,34 @@ function LoginController($scope, $rootScope, $location, $http, $cookieStore, Log
 }
 
 
+
+function CreatePersonaController($scope, $location, PersonaService, TipoPersonaService) {
+	
+	$scope.tiposPersona = TipoPersonaService.query();
+	
+	$scope.persona = new PersonaService();
+	
+	
+	
+	$scope.save = function () {
+		
+		if ($|| $scope.persona.tipoPersona  === undefined || scope.persona.tipoPersona === "" || $scope.persona.nombre  === undefined) {
+			return;
+		}
+		
+		$scope.persona.$save(function() {
+			$location.path('/personas');
+		});
+	}
+	
+}
+
+function PersonasController($scope, PersonaService) {
+	
+	$scope.personas = PersonaService.query();
+
+}
+
 var services = angular.module('exampleApp.services', ['ngResource']);
 
 services.factory('LoginService', function($resource) {
@@ -182,5 +225,15 @@ services.factory('LoginService', function($resource) {
 services.factory('NewsService', function($resource) {
 
 	return $resource('news/:id', {id: '@id'});
+});
+
+services.factory('PersonaService', function($resource) {
+
+	return $resource('personas/:id', {id: '@id'});
+});
+
+services.factory('TipoPersonaService', function($resource) {
+
+	return $resource('tipoPersona/:id', {id: '@id'});
 });
 

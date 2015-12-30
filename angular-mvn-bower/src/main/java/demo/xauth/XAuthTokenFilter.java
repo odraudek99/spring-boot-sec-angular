@@ -33,12 +33,12 @@ public class XAuthTokenFilter extends GenericFilterBean {
 
     @Override
     public void doFilter(ServletRequest arg0, ServletResponse arg1, FilterChain filterChain) throws IOException, ServletException {
-        System.out.println("doFilter");
+        
     	try {
             HttpServletRequest httpServletRequest = (HttpServletRequest) arg0;
             String authToken = httpServletRequest.getHeader(this.xAuthTokenHeaderName);
 
-            System.out.println("authToken: "+authToken);
+            
             
             if (StringUtils.hasText(authToken)) {
                 String username = this.tokenUtils.getUserNameFromToken(authToken);
