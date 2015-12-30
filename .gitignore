@@ -1,0 +1,5 @@
+/.settings
+.project
+
+.gitignore~
+pom.xml~
