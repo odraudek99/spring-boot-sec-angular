@@ -43,7 +43,7 @@ public class XAuthTokenFilter extends GenericFilterBean {
             if (StringUtils.hasText(authToken)) {
                 String username = this.tokenUtils.getUserNameFromToken(authToken);
                 
-                System.out.println("username: "+username);
+                
                 
                 UserDetails details = this.detailsService.loadUserByUsername(username);
 

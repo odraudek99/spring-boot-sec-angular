@@ -29,7 +29,7 @@ class NewsController {
 
 	@RequestMapping("/news")
 	Collection<NewsEntry> entries() {
-		System.out.println("/news");
+		
 		return this.entries.values();
 	}
 

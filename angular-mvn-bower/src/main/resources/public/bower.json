@@ -10,6 +10,7 @@
         "angular":"*",
         "angular-resource":"*",
         "angular-route":"*",
-        "bootstrap":"*"
+        "bootstrap":"*",
+        "ng-table":"*"
     }
 }

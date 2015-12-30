@@ -1,7 +1,7 @@
 
 var xAuthTokenHeaderName = 'x-auth-token';
 
-var exampleApp = angular.module('exampleApp', ['ngRoute', 'ngCookies', 'exampleApp.services']);
+var exampleApp = angular.module('exampleApp', ['ngRoute', 'ngCookies', 'exampleApp.services','ngTable']);
 
 exampleApp.config([ '$routeProvider', '$locationProvider', '$httpProvider', function($routeProvider, $locationProvider, $httpProvider) {
 
@@ -108,7 +108,7 @@ exampleApp.run(function($rootScope, $http, $location, $cookieStore, LoginService
 		var originalPath = $location.path();
 		$location.path("/login");
 		var user = $cookieStore.get('user');
-		alert('user: '+user);
+		
 		
 		if (user !== undefined) {
 			$rootScope.user = user;
@@ -120,8 +120,25 @@ exampleApp.run(function($rootScope, $http, $location, $cookieStore, LoginService
 	});
 
 
-function IndexController($scope, NewsService) {
+function IndexController($scope, NewsService, NgTableParams) {
 
+	//$scope.simpleList = [{name: "Moroni", age: 50,money:11} ];
+	$scope.data = NewsService.query();
+
+	$scope.cols = [
+	               { field: "id", title: "id", sortable: "id", show: true },
+	               { field: "content", title: "content", sortable: "content", show: true } 
+	             ];
+	           
+	$scope.tableParams = new NgTableParams({
+	             // initial sort order
+	             sorting: { age: "desc" } 
+	           }, {
+	             dataset: $scope.data
+	           });
+	
+	
+	
 	$scope.newsEntries = NewsService.query();
 
 	$scope.deleteEntry = function(newsEntry) {
@@ -129,6 +146,9 @@ function IndexController($scope, NewsService) {
 			$scope.newsEntries = NewsService.query();
 		});
 	};
+	
+	
+	
 }
 
 
@@ -190,7 +210,7 @@ function CreatePersonaController($scope, $location, PersonaService, TipoPersonaS
 	
 	$scope.save = function () {
 		
-		if ($|| $scope.persona.tipoPersona  === undefined || scope.persona.tipoPersona === "" || $scope.persona.nombre  === undefined) {
+		if ( $scope.persona.tipoPersona  === undefined || $scope.persona.tipoPersona === "" || $scope.persona.nombre  === undefined) {
 			return;
 		}
 		

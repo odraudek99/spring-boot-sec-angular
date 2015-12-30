@@ -5,17 +5,18 @@
 	<h3>Personas</h3>
 </div>
 
-<div >
-    <table datatable="" dt-options="dtOptions" dt-columns="dtColumns" class="row-border hover"></table>
-</div>
 
-<div ng-repeat="persona in personas">
-	<hr />
-	
-	<h4>{{persona.nombre}}</h4>
-	<h4>{{persona.tipoPersona}}</h4>
-	
-</div>
-
+<div class="row">
+    <div class="col-md-10" >
+      
+      <table ng-table="tableParams" class="table table-condensed table-bordered table-striped">
+        <tr ng-repeat="persona in personas">
+          <td data-title="'nombre'" sortable="'nombre'">{{persona.nombre}}</td>
+          <td data-title="'tipoPersona'" sortable="'tipoPersona'">{{persona.tipoPersona}}</td>
+          
+        </tr>
+      </table>
+    </div>
+    
 
 <hr />
