@@ -75,7 +75,7 @@ exampleApp.config([ '$routeProvider', '$locationProvider', '$httpProvider', func
 
 	);
 
-exampleApp.run(function($rootScope, $http, $location, $cookieStore, LoginService) {
+exampleApp.run(function($rootScope, $http, $location, $cookieStore, LoginService, $log) {
 
 		/* Reset error when a new view is loaded */
 		$rootScope.$on('$viewContentLoaded', function() {
@@ -116,6 +116,11 @@ exampleApp.run(function($rootScope, $http, $location, $cookieStore, LoginService
 
 			$location.path(originalPath);
 		}
+		
+		$http.get('angular.properties').then(function (response) {		
+	        console.log('TestString is ', response.data.TestString);
+	        console.log('BooleanValue is ', response.data.BooleanValue);
+	      });
 
 	});
 

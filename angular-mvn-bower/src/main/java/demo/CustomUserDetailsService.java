@@ -26,7 +26,7 @@ class CustomUserDetailsService extends SpringBeanAutowiringSupport implements Us
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-    	System.out.println("loadUserByUsername.username: "+ username);
+    	
     	
     	Usuario usr = usuarioDAO.read(username);
     	UserDetails details = new SimpleUserDetails(usr.getUsername(), usr.getContrasenia(), ROLE_USER, usr.getRol());

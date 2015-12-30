@@ -11,7 +11,12 @@ mvn spring-boot:run
 
 ---------------------------------------
 30/12/2015
+
 I copied x-auth-security on angular-mvn-bower, now use bower,  now  the pom.xml not has webjars
+
+You need run:
+mvn clean install        <-- install bower dependencies
+mvn spring-boot:run
 
 -------------------------------------------
  
