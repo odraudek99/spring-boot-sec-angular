@@ -9,5 +9,10 @@ backend springboot: 8080  (too has angular front) : http://localhost:8080/#!/log
 to run each module:
 mvn spring-boot:run
 
+---------------------------------------
+30/12/2015
+I copied x-auth-security on angular-mvn-bower, now use bower,  now  the pom.xml not has webjars
+
+-------------------------------------------
  
 

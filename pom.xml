@@ -19,6 +19,8 @@
         <module>angular</module>
         <module>angular2</module>
         <module>x-auth-security</module>
+        <module>angular-mvn-bower</module>
+
     </modules>
 
     <repositories>
