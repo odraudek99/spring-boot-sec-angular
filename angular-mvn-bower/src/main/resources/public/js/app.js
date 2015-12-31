@@ -235,6 +235,11 @@ function PersonasController($scope, PersonaService) {
 	
 	$scope.personas = PersonaService.query();
 
+	$scope.deleteEntry = function(persona) {
+		persona.$remove(function() {
+			$scope.personas = PersonaService.query();
+		});
+	};
 }
 
 var services = angular.module('exampleApp.services', ['ngResource']);

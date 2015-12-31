@@ -13,6 +13,8 @@
         <tr ng-repeat="persona in personas">
           <td data-title="'nombre'" sortable="'nombre'">{{persona.nombre}}</td>
           <td data-title="'tipoPersona'" sortable="'tipoPersona'">{{persona.tipoPersona}}</td>
+          <td data-title="'Eliminar'" ><a ng-click="deleteEntry(persona)" class="btn btn-xs btn-default" ng-show="hasRole('ROLE_ADMIN')">Remove</a></td>
+          
           
         </tr>
       </table>

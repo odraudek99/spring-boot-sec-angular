@@ -5,6 +5,7 @@ import java.util.Map;
 import java.util.Random;
 import java.util.concurrent.ConcurrentHashMap;
 
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -41,6 +42,11 @@ public class PersonasController {
 		return news;
 	}
 	
+	@RequestMapping(value = "/personas/{id}", method = RequestMethod.DELETE)
+	Persona remove(@PathVariable Long id) {
+		System.out.println("delete: "+id);
+		return this.entries.remove(id);
+	}
 	
 	@RequestMapping("/tipoPersona")
 	Collection<TipoPersona> tipoPersona() {
