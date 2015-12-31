@@ -1,10 +1,12 @@
 
 var xAuthTokenHeaderName = 'x-auth-token';
 
-var exampleApp = angular.module('exampleApp', ['ngRoute', 'ngCookies', 'exampleApp.services','ngTable']);
+var exampleApp = angular.module('exampleApp', ['ngRoute', 'ngCookies', 'exampleApp.services','ngTable','angular-growl']);
 
-exampleApp.config([ '$routeProvider', '$locationProvider', '$httpProvider', function($routeProvider, $locationProvider, $httpProvider) {
+exampleApp.config([ '$routeProvider', '$locationProvider', '$httpProvider','growlProvider', function($routeProvider, $locationProvider, $httpProvider, growlProvider) {
 
+	growlProvider.globalTimeToLive(6000);
+	
 			$routeProvider.when('/create', {
 				templateUrl: 'partials/create.html',
 				controller: CreateController,
@@ -125,7 +127,7 @@ exampleApp.run(function($rootScope, $http, $location, $cookieStore, LoginService
 	});
 
 
-function IndexController($scope, NewsService, NgTableParams) {
+function IndexController($scope, NewsService, NgTableParams, growl) {
 
 	//$scope.simpleList = [{name: "Moroni", age: 50,money:11} ];
 	$scope.data = NewsService.query();
@@ -152,7 +154,10 @@ function IndexController($scope, NewsService, NgTableParams) {
 		});
 	};
 	
-	
+	$scope.init = function () {
+		growl.success("Accediendo a index ");
+	}
+	$scope.init();
 	
 }
 

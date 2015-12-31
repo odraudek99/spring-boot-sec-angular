@@ -11,6 +11,7 @@
         "angular-resource":"*",
         "angular-route":"*",
         "bootstrap":"*",
-        "ng-table":"*"
+        "ng-table":"*",
+        "angular-growl-2":"*"
     }
 }

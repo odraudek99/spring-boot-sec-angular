@@ -6,10 +6,9 @@
     
     <link href="bower_components/ng-table/dist/ng-table.css" rel="stylesheet" />
     
-    <!-- <link rel="stylesheet"	href="bower_components/angular-growl/angular-growl.min.css" /> 
-    <link rel="stylesheet"
-	href="webjars/angular-block-ui/0.2.0/dist/angular-block-ui.min.css" /
-    -->
+    <!-- <link rel="stylesheet"	href="bower_components/angular-growl-2/build/angular-growl.min.css" />  -->
+    <!-- <link rel="stylesheet" 	href="webjars/angular-block-ui/0.2.0/dist/angular-block-ui.min.css" /> -->
+    
     
  </head>
 <body style="padding-top: 60px">
@@ -46,6 +45,7 @@
 
 	<div class="container">
 		<div class="alert alert-danger" ng-show="error">{{error}}</div>
+		<div growl></div>
 		<div ng-view></div>
 	</div>
 
@@ -56,7 +56,9 @@
 	<script src="bower_components/ng-table/dist/ng-table.js"></script>
 	<script src="bower_components/angular-resource/angular-resource.js"></script>
 	<script src="bower_components/angular-route/angular-route.js"></script>
-	<script src="bower_components/angular-cookies/angular-cookies.js"></script>
+	<script src="bower_components/angular-cookies/angular-cookies.min.js"></script>
+	<script src="bower_components/angular-growl-2/build/angular-growl.min.js"></script> 
+	
 	
 	<script src="js/app.js"></script>
 	
